@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script defer src="script.js"></script>
 
-
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <script>
+      const roomName = "<%= roomName %>"
+    </script>
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
     
     <title>PakaPlaner</title>
 </head>
@@ -102,7 +106,11 @@
             </div>
 
         </section>
-        <section class="chat">
+        <section id="message-container">
+            <form id="send-container">
+                <input type="text" id="message-input">
+                <button type="submit" id="send-button">Send</button>
+              </form>
 
         </section>
     </main>
