@@ -1,0 +1,96 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Source Sans Pro";
+    background-color: #121212;
+    color: whitesmoke;
+}
+::-webkit-scrollbar {
+    width: 12px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #2d2d2d; 
+    border-radius: 10px;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #1e1e1e; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #135e32; 
+  }
+.header{
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+  
+}
+.header__arrows{
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+}
+.header__selection{
+text-decoration: none;
+width: fill;
+width: 20%;
+height: 120px;
+border:1px solid white
+}
+.header__circle{
+    display: block;
+    margin: 20px auto 10px auto;
+    
+    background-color: red;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    border: 15%;
+    
+}
+.header__selection a{
+text-decoration: none;
+margin-left: auto;
+margin-right: auto;
+
+}
+
+.selection{
+    width: 75%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll ;
+}
+.selection__margins a{
+    text-decoration: none;
+    margin: 80px auto 15px 30%;
+    display: flex;
+    flex-direction: row;
+    
+    
+}
+.selection__bar{
+    border: 1px solid #2d2d2d;
+    border-radius:8px;
+    width: 50%;
+    height: 12px;
+    margin-left: 30%;
+}
+
+.selection__bar-progress{
+    height: 12px;
+    border-radius: 8px;
+    width: 20%;
+    background-color: #28c769;
+}/*ovde treba stavit js za ovisnmo kojese 
+stisne taj ce se punit to treba sinkronizirat sa bazom*/
+
+
+.chat{
+
+}
