@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
     <script defer src="script.js"></script>
-    <script src = "votingSystem.js"></script> <!--skripta za kontrolu forme-->
+    <script src="votingSystem.js"></script>
+    <!--skripta za kontrolu forme-->
 
     <script>
-      const roomName = "<%= roomName %>"
+        const roomName = "<%= roomName %>"
     </script>
     <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
-    
+    <link rel="stylesheet" href="/assets/css/chat.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
     <title>PakaPlanner</title>
 </head>
+
 <body>
     <header class="header">
         <div class="header__arrows">
@@ -28,7 +33,7 @@
                 </div>
                 <a> Piće </a>
             </div>
-            <div href=""class="header__selection">
+            <div href="" class="header__selection">
                 <div class="header__circle bgc-blue">
 
                 </div>
@@ -40,7 +45,7 @@
                 </div>
                 <a> Videoigre </a>
             </div>
-            <div href=""  class="header__selection">
+            <div href="" class="header__selection">
                 <div class="header__circle bgc-pink">
 
                 </div>
@@ -52,7 +57,7 @@
                 </div>
                 <a> Ostalo </a>
             </div>
-            <div href="" class="margintop30px"> 
+            <div href="" class="margintop30px">
                 <img src="./assets/img/Asset 5.png" alt="right">
             </div>
 
@@ -60,92 +65,99 @@
     </header>
 
     <main>
-        <!--button za otvaranje forme-->
-        <button class="open-button" onclick="openForm()">New Poll</button>
+        <div>
 
-        <div class="form-popup" id="myForm">
-            <form action="/add_poll" method = "post" class="form-container"> <!--ova stranica sluzi za unos u bazu-->
-                <h1>Add a new poll</h1>
 
-                <label for="poll"><b>Poll Name:</b></label>
-                <input type="text" placeholder="Enter Poll Name" name="poll" id = "poll" required>
+            <section class="selection">
+               
+                <div class="selection__margins">
+                    <a href="">Vodka</a>
+                    <div class="selection__bar">
+                        <div class="selection__bar-progress">
 
-                <button type="submit" class="btn">Submit</button>
-                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-            </form>
-        </div>
-
-        <section class="selection">
-            <div class="selection__margins">
-                <a href="">Vodka</a>
-                <div class="selection__bar"> 
-                    <div class="selection__bar-progress">
-
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="selection__margins">
-                <a href="">Piva</a>
-                <div class="selection__bar"> 
-                    <div class="selection__bar-progress">
+                <div class="selection__margins">
+                   
+                    <a href="">Piva</a>
+                    <div class="selection__bar">
+                        <div class="selection__bar-progress">
+                        </div>
                     </div>
-                </div>
 
-            </div>
-            <div class="selection__margins">
-                <a href="">Višnja</a>
-                <div class="selection__bar"> 
-                    <div class="selection__bar-progress">
-                        
-                    </div>
                 </div>
-            </div>
-            <div class="selection__margins">
-                <a href="">Rum</a>
-                <div class="selection__bar"> 
-                    <div class="selection__bar-progress">
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="selection__margins">
-                <a href="">Piva</a>
-                <div class="selection__bar"> 
-                    <div class="selection__bar-progress">
-                    </div>
-                </div>
+                <div class="selection__margins">
+                
+                    <a href="">Višnja</a>
+                    <div class="selection__bar">
+                        <div class="selection__bar-progress">
 
-            </div>
-            <div class="selection__margins">
-                <a href="">Piva</a>
-                <div class="selection__bar"> 
-                    <div class="selection__bar-progress">
+                        </div>
                     </div>
                 </div>
+                <div class="selection__margins">
+                    <a href="">Rum</a>
+                    <div class="selection__bar">
+                        <div class="selection__bar-progress">
 
-            </div>
-            <div class="selection__margins">
-                <a href="">Piva</a>
-                <div class="selection__bar"> 
-                    <div class="selection__bar-progress">
+                        </div>
                     </div>
                 </div>
                 <div class="selection__margins">
                     <a href="">Piva</a>
-                    <div class="selection__bar"> 
+                    <div class="selection__bar">
                         <div class="selection__bar-progress">
                         </div>
                     </div>
-            </div>
 
-        </section>
-        <section id="message-container">
-            <form id="send-container">
-                <input type="text" id="message-input">
-                <button type="submit" id="send-button">Send</button>
-              </form>
+                </div>
+                <div class="selection__margins">
+                    <a href="">Piva</a>
+                    <div class="selection__bar">
+                        <div class="selection__bar-progress">
+                        </div>
+                    </div>
 
-        </section>
+                </div>
+                <div class="selection__margins">
+                    <a href="">Piva</a>
+                    <div class="selection__bar">
+                        <div class="selection__bar-progress">
+                        </div>
+                    </div>
+                    <div class="selection__margins">
+                        <a href="">Piva</a>
+                        <div class="selection__bar">
+                            <div class="selection__bar-progress">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <button class="open-button" onclick="openForm()">New Poll</button>
+                <!--button za otvaranje forme-->
+                <div class="form-popup" id="myForm">
+                    <form action="/add_poll" method="post" class="form-container">
+                        <!--ova stranica sluzi za unos u bazu-->
+                        <h1>Add a new poll</h1>
+
+                        <label for="poll"><b>Poll Name:</b></label>
+                        <input type="text" placeholder="Enter Poll Name" name="poll" id="poll" required>
+
+                        <button type="submit" class="btn">Submit</button>
+                        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                    </form>
+                </div>
+            </section>
+            <section id="message-container" class="chat">
+                <form id="send-container" >
+                    <input type="text" class="chat__input" id="message-input" placeholder="Enter message...">
+                    <button type="submit" class="chat__button" id="send-button">Send</button>
+                </form>
+
+            </section>
     </main>
 </body>
+
 </html>

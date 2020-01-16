@@ -1,7 +1,7 @@
 *{
   padding: 0;
   margin: 0;
-  font-family: "Helvetica";
+  font-family: "Source Sans Pro";
   background-color: #121212;
   color: whitesmoke;
 
@@ -74,17 +74,22 @@ height: 130px;
   background-color: #d1369c;
 }
 .header__selection a{
-text-decoration: none;
-
-
+  font-size: 16px;
+  text-transform: uppercase;
+  
 }
 
 .selection{
   width: 75%;
-  height: 500px;
+  height: 550px;
+  position: relative;
   display: flex;
   flex-direction: column;
   overflow-y: scroll ;
+}
+.selection__mark{
+  width: 20px;
+  height: 20px;
 }
 .selection__margins a{
   text-decoration: none;
@@ -115,24 +120,26 @@ stisne taj ce se punit to treba sinkronizirat sa bazom*/
 
 /* Button used to open the contact form*/
 .open-button {
-    background-color: #555;
+    background-color: #b55cee;
     color: white;
     padding: 16px 20px;
     border: none;
     cursor: pointer;
     opacity: 0.8;
+    margin-top: 16px;
     position: fixed;
-    bottom: 23px;
-    right: 28px;
+    bottom: 5%;
+    right: 25%;
     width: 280px;
+    z-index: 2;
   }
   
   /* The popup form - hidden by default */
   .form-popup {
     display: none;
     position: fixed;
-    bottom: 0;
-    right: 15px;
+    bottom: 5%;
+    right: 25%;
     border: 3px solid #f1f1f1;
     z-index: 9;
   }
@@ -146,7 +153,7 @@ stisne taj ce se punit to treba sinkronizirat sa bazom*/
   
   /* Full-width input fields */
   .form-container input[type=text]{
-    width: 100%;
+    width: 90%;
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none;
