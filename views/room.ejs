@@ -6,13 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
     <script defer src="script.js"></script>
+    <script src = "votingSystem.js"></script> <!--skripta za kontrolu forme-->
 
     <script>
       const roomName = "<%= roomName %>"
     </script>
     <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
     
-    <title>PakaPlaner</title>
+    <title>PakaPlanner</title>
 </head>
 <body>
     <header class="header">
@@ -42,6 +43,21 @@
     </header>
 
     <main>
+        <!--button za otvaranje forme-->
+        <button class="open-button" onclick="openForm()">New Poll</button>
+
+        <div class="form-popup" id="myForm">
+            <form action="/ADD_DATABASE_COMMUNICATION_SCRIPT.nešto" class="form-container"> <!--ovde triba dodat nodejs skriptu koja obraduje podatke forme i salje bazi-->
+                <h1>Add a new poll</h1>
+
+                <label for="poll"><b>Poll Name:</b></label>
+                <input type="text" placeholder="Enter Poll Name" name="poll" required>
+
+                <button type="submit" class="btn">Submit</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+
         <section class="selection">
             <div class="selection__margins">
                 <a href="">Vodka</a>
