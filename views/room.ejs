@@ -47,11 +47,11 @@
         <button class="open-button" onclick="openForm()">New Poll</button>
 
         <div class="form-popup" id="myForm">
-            <form action="/ADD_DATABASE_COMMUNICATION_SCRIPT.nešto" class="form-container"> <!--ovde triba dodat nodejs skriptu koja obraduje podatke forme i salje bazi-->
+            <form action="/add_poll" method = "post" class="form-container"> <!--ova stranica sluzi za unos u bazu-->
                 <h1>Add a new poll</h1>
 
                 <label for="poll"><b>Poll Name:</b></label>
-                <input type="text" placeholder="Enter Poll Name" name="poll" required>
+                <input type="text" placeholder="Enter Poll Name" name="poll" id = "poll" required>
 
                 <button type="submit" class="btn">Submit</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
