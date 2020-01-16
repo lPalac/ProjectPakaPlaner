@@ -25,3 +25,6 @@ const VotingScheme = new mongoose.Schema({
 
 const Vote = mongoose.model('Vote',VotingScheme);
 module.exports = Vote;
+
+
+//PROBS USELESS

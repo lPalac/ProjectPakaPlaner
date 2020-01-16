@@ -7,9 +7,6 @@ const bodyParser = require('body-parser')
 let validator = require('validator')
 
 let RoomScheme = require('./models/room')
-let VoteScheme = require('./models/vote')
-
-
 
 app.set('views', './views')
 app.set('view engine', 'ejs')
@@ -35,52 +32,41 @@ mongoose.connect(
 
 //--------------------
 
-
-
 app.use(express.static(__dirname+ '/public'));
-
-
-//kreiranje sobe
-
-app.post('/makeRoom', (req, res) => {
-  const { roomName, userAdmin } = req.body
-
-  if (!roomName) {
-    return res.status(400).send({ error: "you need to room"})
-  }
-
-  let newRoom = new RoomScheme({
-    RoomID: randomIDGenerator(),
-    roomName,
-    userAdmin   
-  })
-
-  newRoom.save().then(() => {
-    res.status(200).send({
-      newRoom
-    })
-  }).catch(err => {
-    res.status(400).send({ error: err})
-  })
-})
-
-//--------------------------------------------------
 
 app.get('/', (req, res) => {
   res.render('index', { rooms: rooms })
 })
 
+
+//Room Creation - uploaded to Mongo
+
 app.post('/room', (req, res) => {
   if (rooms[req.body.room] != null) {
     return res.redirect('/')
   }
+  let roomName = req.body.room
+
+  let newRoom = new RoomScheme({
+    RoomID: randomIDGenerator(),
+    roomName      
+  })
+  newRoom.save().then(() => {
+    res.redirect(req.body.room)
+  }).catch(err => {
+    res.status(400).send({ error: err})
+  })
+  
+ 
   rooms[req.body.room] = { users: { } }
-  res.redirect(req.body.room)
   // Send message that new room was created
   io.emit('room-created', req.body.room)
 })
 
+//--------------------------
+
 app.get('/:room', (req, res) => {
+
   if (rooms[req.params.room] == null) {
     return res.redirect('/')
   }
@@ -93,7 +79,27 @@ io.on('connection', socket => {
   socket.on('new-user', (room, name) => {
     socket.join(room)
     rooms[room].users[socket.id] = name
-    socket.to(room).broadcast.emit('user-connected', name)
+
+
+//USER ADDING TO MONGO
+
+//---------MAYBE DOESN'T WORK AND/OR USELESS----------------------
+var objUser = {user: "David"};
+db.findOneAndUpdate(
+  { roomName: room }, 
+  { $push: { user: objUser  } },
+ function (error, success) {
+       if (error) {
+           console.log(error);
+       } else {
+           console.log(success);
+       }
+   });
+
+//-----------------
+
+  socket.to(room).broadcast.emit('user-connected', name)
+    
   })
   socket.on('send-chat-message', (room, message) => {
     socket.to(room).broadcast.emit('chat-message', { message: message, name: rooms[room].users[socket.id] })
@@ -113,7 +119,7 @@ function getUserRooms(socket) {
   }, [])
 }
 
-
+//duhh
 function randomIDGenerator(){
   var number = Math.random() // 0.9394456857981651
   number.toString(36); // '0.xtis06h6'
