@@ -83,20 +83,20 @@ io.on('connection', socket => {
 
 //USER ADDING TO MONGO
 
-//---------MAYBE DOESN'T WORK AND/OR USELESS----------------------
-var objUser = {user: "David"};
-db.findOneAndUpdate(
-  { roomName: room }, 
-  { $push: { user: objUser  } },
- function (error, success) {
-       if (error) {
-           console.log(error);
-       } else {
-           console.log(success);
-       }
-   });
+// ---------MAYBE DOESN'T WORK AND/OR USELESS----------------------
+// var objUser = {user: "David"};
+// db.findOneAndUpdate(
+//   { roomName: room }, 
+//   { $push: { user: objUser  } },
+//  function (error, success) {
+//        if (error) {
+//            console.log(error);
+//        } else {
+//            console.log(success);
+//        }
+//    });
 
-//-----------------
+// -----------------
 
   socket.to(room).broadcast.emit('user-connected', name)
     
