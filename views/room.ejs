@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script defer src="script.js"></script>
+
+    <!--skripta za kontrolu forme-->
+
+    <script>
+        const roomName = "<%= roomName %>"
+    </script>
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/chat.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+    <title>PakaPlanner</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__arrows">
+            <div class="margintop30px">
+                <img src="./assets/img/Asset 4.png" alt="left">
+            </div>
+
+            <div href="" class="header__selection">
+                <div class="header__circle bgc-red">
+
+                </div>
+                <a> Piće </a>
+            </div>
+            <div href="" class="header__selection">
+                <div class="header__circle bgc-blue">
+
+                </div>
+                <a> Hrana </a>
+            </div>
+            <div href="" class="header__selection">
+                <div class="header__circle bgc-purple">
+
+                </div>
+                <a> Videoigre </a>
+            </div>
+            <div href="" class="header__selection">
+                <div class="header__circle bgc-pink">
+
+                </div>
+                <a> Lokacija </a>
+            </div>
+            <div href="" class="header__selection">
+                <div class="header__circle bgc-green">
+
+                </div>
+                <a> Ostalo </a>
+            </div>
+            <div href="" class="margintop30px">
+                <img src="./assets/img/Asset 5.png" alt="right">
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <div>
+
+
+            <section class="selection">
+                <div class="selection__margins" id = "meme">
+
+
+                </div>
+                <button class="open-button" onclick="openForm()">New Poll</button>
+                <!--button za otvaranje forme-->
+                <div class="form-popup" id="myForm">
+                    <div action="/add_poll" method="post" class="form-container">
+                        <!--ova stranica sluzi za unos u bazu-->
+                        <h1>Add a new poll</h1>
+
+                        <label for="poll"><b>Poll Name:</b></label>
+                        <input type="text" placeholder="Enter Poll Name" name="poll" id="poll" required>
+
+                        <button type="submit" class="btn" id="submitBtn">Submit</button>
+                        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                    </div>
+                </div>
+            </section>
+            <section id="message-container" class="chat">
+                <form id="send-container">
+                    <input type="text" class="chat__input" id="message-input" placeholder="Enter message...">
+                    <button type="button" class="actual__chat__button" id="send-button">Send</button>
+                </form>
+
+            </section>
+    </main>
+    <script src="votingSystem.js"></script>
+</body>
+

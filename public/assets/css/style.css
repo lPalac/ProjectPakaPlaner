@@ -1,0 +1,232 @@
+
+*{
+  padding: 0;
+  margin: 0;
+  font-family: "Source Sans Pro";
+  background-color: #121212;
+  color: whitesmoke;
+
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #2d2d2d; 
+  border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #1e1e1e; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #135e32; 
+}
+.margintop30px{
+  margin-top: 30px;
+}
+
+.header{
+width: 75%;   
+margin-top: 30px;
+  
+}
+.header__arrows{
+  display: flex;
+  flex-direction: row;
+  overflow-x: hidden;
+  justify-content: space-evenly;
+}
+.header__selection{
+text-decoration: none;
+text-align: center;
+width: 130px;
+height: 130px;
+
+}
+.header__circle{
+  display: block;
+  margin: 20px auto 10px auto;
+  
+ 
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  border: 15%;
+  
+}
+.bgc-green{
+  background-color: #28c769;
+}
+.bgc-red{
+  background-color: #ee4b56;
+}
+.bgc-blue{
+  background-color: #8181f2;
+}
+.bgc-purple{
+  background-color: #b55cee;
+}
+.bgc-pink{
+  background-color: #d1369c;
+}
+.header__selection a{
+  font-size: 16px;
+  text-transform: uppercase;
+  
+}
+
+.selection{
+  width: 75%;
+  height: 550px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll ;
+}
+.selection__mark{
+  width: 20px;
+  height: 20px;
+}
+.selection__margins a{
+  text-decoration: none;
+  margin: 80px auto 15px 30%;
+  display: flex;
+  flex-direction: row;
+  
+  
+}
+.selection__bar{
+  border: 1px solid #2d2d2d;
+  border-radius:8px;
+  width: 50%;
+  height: 12px;
+  margin-left: 30%;
+}
+
+.selectionbar-progress{
+  height: 12px;
+  border-radius: 8px;
+  width: 0%;
+  background-color: #28c769;
+}
+
+.selection__bar-progress20{
+  width: 20%;
+  height: 12px;
+  border-radius: 8px;
+  background-color: #28c769;
+}
+.selection__bar-progress2020{
+  width: 40%;
+  height: 12px;
+  border-radius: 8px;
+  background-color: #28c769;
+}
+.selection__bar-progress202020{
+  width: 60%;
+  height: 12px;
+  border-radius: 8px;
+  background-color: #28c769;
+}
+.selection__bar-progress20202020{
+  width: 80%;
+  height: 12px;
+  border-radius: 8px;
+  background-color: #28c769;
+}
+.selection__bar-progress2020202020{
+  width: 100%;
+  height: 12px;
+  border-radius: 8px;
+  background-color: #28c769;
+}
+
+.chat__button{
+  position: absolute;
+  right: 11%;
+  padding: 12px 24px;
+  margin-top: -22px;
+  background-color: #b55cee;
+  border: 0;
+}
+
+
+
+
+/* Button used to open the contact form*/
+.open-button {
+    background-color: #b55cee;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    margin-top: 16px;
+    position: fixed;
+    bottom: 5%;
+    right: 25%;
+    width: 280px;
+    z-index: 2;
+  }
+  
+  /* The popup form - hidden by default */
+  .form-popup {
+    display: none;
+    position: fixed;
+    bottom: 5%;
+    right: 25%;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+  
+  /* Add styles to the form container */
+  .form-container {
+    max-width: 300px;
+    padding: 10px;
+    
+  }
+
+  
+  /* Full-width input fields */
+  .form-container input[type=text]{
+    width: 90%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: 1px solid #f1f1f1
+    
+  }
+  
+  /* When the inputs get focus, do something */
+  .form-container input[type=text]:focus{
+    background-color: #ddd;
+    outline: none;
+    color: black;
+  }
+  
+  /* Set a style for the submit/login button */
+  .form-container .btn {
+    background-color: #28c769;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .form-container .cancel {
+    background-color: #ee4b56;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }
+

@@ -1,0 +1,25 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Source Sans Pro";
+    background-color: #121212;
+    color: whitesmoke;
+    text-align: center;
+
+  }
+.welcome__input{
+
+font-size: 32px;
+margin-top: 19%;
+margin-bottom: 20px;
+text-align: left;
+}
+
+.welcome__button{
+    margin-top: 20px;
+    border-radius: 8px;
+    padding: 40px 80px;
+    background-color: #b55cee;
+    border: 0;
+    font-size: 32px ;
+}
