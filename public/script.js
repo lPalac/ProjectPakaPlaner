@@ -1,9 +1,11 @@
+
 const socket = io('http://localhost:3000')
 const messageContainer = document.getElementById('message-container')
 
 const messageForm = document.getElementById('send-container')
 const messageInput = document.getElementById('message-input')
 const pollContainer = document.getElementById('meme');
+var i = 0;
 
 
 
@@ -37,9 +39,20 @@ button.addEventListener('click',e=>{
 });
 
 socket.on('poll',(data) =>{
-  console.log("yo")
   appendPoll(`${data}`);
 })
+
+socket.on('vote-button-pressed',button=>{
+  const pollArray = document.getElementsByClassName("pollName");
+ 
+  for(var i = 0;i<pollArray.length;i++)
+  {
+    if(pollArray[i].firstElementChild.innerText == button)
+      pollArray[i].getElementsByTagName("div")[1].className += 20;
+  }
+
+});
+
 
 socket.on('room-created', room => {
   
@@ -61,9 +74,53 @@ socket.on('user-disconnected', name => {
 
 function appendPoll(poll) {
   const pollElement = document.createElement('div');
-  pollElement.innerText = poll;
+  pollElement.className = "pollName"
+  pollElement.innerHTML = ` 
+  <a>${poll}</a>
+  <button class = "chat__button">Vote</button>
+    <div class="selection__bar">
+     <div class="selection__bar-progress">
+    </div>
+  </div>`
   pollContainer.append(pollElement);
-  console.log("meme");
+  const voteButton = document.getElementsByClassName("chat__button");
+
+ 
+    for (let i = 0; i < voteButton.length; i++) {
+      const button = voteButton[i];
+      if(button.flag != true)
+        button.addEventListener('click', HandleVoteButtonClick)
+    
+      voteButton[i].flag = true;
+    }
+
+}
+
+
+
+function HandleClientSideVote(button)
+{
+  const pollArray = document.getElementsByClassName("pollName");
+ 
+  for(var i = 0;i<pollArray.length;i++)
+  {
+    if(pollArray[i].firstElementChild.innerText == button)
+      pollArray[i].getElementsByTagName("div")[1].className += 20;
+  }
+}
+
+
+function HandleVoteButtonClick(e)
+{
+  //server handle
+  
+  socket.emit("vote-button-press",roomName,e.path[1].firstElementChild.innerText)
+
+  e.path[0].disabled = true;
+  e.path[0].style.background = "gray";
+
+  HandleClientSideVote(e.path[1].firstElementChild.innerText);
+  //MAKE CLIENT SIDE WORK
 }
 
 
@@ -80,4 +137,3 @@ function randomIDGenerator(){
   var id = number.toString(36).substr(2, 9); // 'xtis06h6'
   id.length >= 9; // false
   return id;
-}

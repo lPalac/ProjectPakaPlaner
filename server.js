@@ -1,3 +1,4 @@
+
 const express = require('express')
 const app = express()
 const server = require('http').Server(app)
@@ -109,13 +110,14 @@ io.on('connection', socket => {
     })
   })
   socket.on('new-poll',(room,pollName)=>{
-    //napravit meme
-    console.log(pollName);
     socket.to(room).emit('poll',pollName);
   })
 
   //napravit meme za glasat za meme
-
+  socket.on('vote-button-press',(room,button)=>{
+      socket.to(room).broadcast.emit('vote-button-pressed',button);
+  });
+  
 
 
   //update ostale memere za stanje memea
@@ -135,4 +137,3 @@ function randomIDGenerator(){
   var id = number.toString(36).substr(2, 9); // 'xtis06h6'
   id.length >= 9; // false
   return id;
-}
