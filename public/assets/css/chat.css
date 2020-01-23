@@ -14,7 +14,8 @@
     margin:10px 0 10px 0px;
 }/*ovo negdi treba ic? di se stvaraju divovi u jsu*/
 
-.chat__button{
+
+.actual__chat__button{
     position: absolute;
     right: 5px;
     padding: 10px 20px;

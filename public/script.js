@@ -137,3 +137,4 @@ function randomIDGenerator(){
   var id = number.toString(36).substr(2, 9); // 'xtis06h6'
   id.length >= 9; // false
   return id;
+}

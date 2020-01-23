@@ -43,7 +43,7 @@ margin-top: 30px;
 }
 .header__selection{
 text-decoration: none;
-
+text-align: center;
 width: 130px;
 height: 130px;
 
@@ -146,6 +146,15 @@ height: 130px;
   background-color: #28c769;
 }
 
+.chat__button{
+  position: absolute;
+  right: 11%;
+  padding: 12px 24px;
+  margin-top: -22px;
+  background-color: #b55cee;
+  border: 0;
+}
+
 
 
 
@@ -179,22 +188,24 @@ height: 130px;
   .form-container {
     max-width: 300px;
     padding: 10px;
-    background-color: #2d2d2d;
+    
   }
+
   
   /* Full-width input fields */
   .form-container input[type=text]{
     width: 90%;
     padding: 15px;
     margin: 5px 0 22px 0;
-    border: none;
-    background: #f1f1f1;
+    border: 1px solid #f1f1f1
+    
   }
   
   /* When the inputs get focus, do something */
   .form-container input[type=text]:focus{
     background-color: #ddd;
     outline: none;
+    color: black;
   }
   
   /* Set a style for the submit/login button */
@@ -211,7 +222,7 @@ height: 130px;
   
   /* Add a red background color to the cancel button */
   .form-container .cancel {
-    background-color: red;
+    background-color: #ee4b56;
   }
   
   /* Add some hover effects to buttons */
