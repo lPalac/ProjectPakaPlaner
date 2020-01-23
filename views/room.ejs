@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
     <script defer src="script.js"></script>
-    <script src="votingSystem.js"></script>
+
     <!--skripta za kontrolu forme-->
 
     <script>
@@ -69,95 +69,34 @@
 
 
             <section class="selection">
-               
-                <div class="selection__margins">
-                    <a href="">Vodka</a>
-                    <div class="selection__bar">
-                        <div class="selection__bar-progress">
+                <div class="selection__margins" id = "meme">
 
-                        </div>
-                    </div>
-                </div>
-                <div class="selection__margins">
-                   
-                    <a href="">Piva</a>
-                    <div class="selection__bar">
-                        <div class="selection__bar-progress">
-                        </div>
-                    </div>
-
-                </div>
-                <div class="selection__margins">
-                
-                    <a href="">Višnja</a>
-                    <div class="selection__bar">
-                        <div class="selection__bar-progress">
-
-                        </div>
-                    </div>
-                </div>
-                <div class="selection__margins">
-                    <a href="">Rum</a>
-                    <div class="selection__bar">
-                        <div class="selection__bar-progress">
-
-                        </div>
-                    </div>
-                </div>
-                <div class="selection__margins">
-                    <a href="">Piva</a>
-                    <div class="selection__bar">
-                        <div class="selection__bar-progress">
-                        </div>
-                    </div>
-
-                </div>
-                <div class="selection__margins">
-                    <a href="">Piva</a>
-                    <div class="selection__bar">
-                        <div class="selection__bar-progress">
-                        </div>
-                    </div>
-
-                </div>
-                <div class="selection__margins">
-                    <a href="">Piva</a>
-                    <div class="selection__bar">
-                        <div class="selection__bar-progress">
-                        </div>
-                    </div>
-                    <div class="selection__margins">
-                        <a href="">Piva</a>
-                        <div class="selection__bar">
-                            <div class="selection__bar-progress">
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
                 <button class="open-button" onclick="openForm()">New Poll</button>
                 <!--button za otvaranje forme-->
                 <div class="form-popup" id="myForm">
-                    <form action="/add_poll" method="post" class="form-container">
+                    <div action="/add_poll" method="post" class="form-container">
                         <!--ova stranica sluzi za unos u bazu-->
                         <h1>Add a new poll</h1>
 
                         <label for="poll"><b>Poll Name:</b></label>
                         <input type="text" placeholder="Enter Poll Name" name="poll" id="poll" required>
 
-                        <button type="submit" class="btn">Submit</button>
+                        <button type="submit" class="btn" id="submitBtn">Submit</button>
                         <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                    </form>
+                    </div>
                 </div>
             </section>
             <section id="message-container" class="chat">
-                <form id="send-container" >
+                <form id="send-container">
                     <input type="text" class="chat__input" id="message-input" placeholder="Enter message...">
-                    <button type="submit" class="chat__button" id="send-button">Send</button>
+                    <button type="button" class="chat__button" id="send-button">Send</button>
                 </form>
 
             </section>
     </main>
+    <script src="votingSystem.js"></script>
 </body>
 
 </html>

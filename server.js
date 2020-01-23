@@ -74,6 +74,7 @@ app.post('/room', (req, res) => {
   if (rooms[req.body.room] != null) {
     return res.redirect('/')
   }
+ 
   rooms[req.body.room] = { users: { } }
   res.redirect(req.body.room)
   // Send message that new room was created
@@ -84,6 +85,7 @@ app.get('/:room', (req, res) => {
   if (rooms[req.params.room] == null) {
     return res.redirect('/')
   }
+  console.log(req.params.room);
   res.render('room', { roomName: req.params.room })
 })
 
@@ -94,6 +96,8 @@ io.on('connection', socket => {
     socket.join(room)
     rooms[room].users[socket.id] = name
     socket.to(room).broadcast.emit('user-connected', name)
+    console.log(room);
+
   })
   socket.on('send-chat-message', (room, message) => {
     socket.to(room).broadcast.emit('chat-message', { message: message, name: rooms[room].users[socket.id] })
@@ -104,6 +108,17 @@ io.on('connection', socket => {
       delete rooms[room].users[socket.id]
     })
   })
+  socket.on('new-poll',(room,pollName)=>{
+    //napravit meme
+    console.log(pollName);
+    socket.to(room).emit('poll',pollName);
+  })
+
+  //napravit meme za glasat za meme
+
+
+
+  //update ostale memere za stanje memea
 })
 
 function getUserRooms(socket) {
